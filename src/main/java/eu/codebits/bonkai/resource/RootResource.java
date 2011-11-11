@@ -46,9 +46,17 @@ public class RootResource {
     @Path("/translate")
     @GET
     @Produces("text/html")
-    public Viewable tranlateView() {
+    public Viewable translateView() {
         
         return new Viewable("/translate", entryService.getTranslationBlock(null, null));
+    }
+    
+    @Path("/review")
+    @GET
+    @Produces("text/html")
+    public Viewable reviewView() {
+        
+        return new Viewable("/review", entryService.getReviewBlock(null, null));
     }
     
     

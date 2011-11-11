@@ -1,0 +1,134 @@
+/* 
+    Document   : base
+    Created on : Nov 11, 2011, 8:55:28 AM
+    Author     : administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+html, body {
+    background-color: #CCC;
+    font-family: arial, helvetica;
+    height:100%;
+    margin:0;
+    padding:0;
+}
+
+.context_entry
+{
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    padding: 10px;
+    background-color: #699;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 15pt;
+}
+
+.entry_container
+{
+    display: inline-block;
+    text-align: center;
+}
+
+.original_entry
+{
+    background-color: #366;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 20pt;
+    color: #FFF;
+    padding: 20px;
+}
+
+.translated_entry
+{
+    background-color: #033;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 20pt;
+    color:#FFF;
+    padding: 20PX;
+}
+
+.centered_content
+{
+    min-height: 100%;
+    background-color: #9CC;
+    width: 70%;
+    margin-left:auto;
+    margin-right: auto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-top: 30px;
+}
+
+#review_block
+{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.submit_buttons
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a.ok
+{
+    display:inline-block;
+    background-color: #0C6;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 20pt;
+    color:#FFF;
+    padding: 20PX;
+}
+
+a.not_ok
+{
+    display:inline-block;
+    background-color: #F33;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 20pt;
+    color:#FFF;
+    padding: 20PX;
+}
+
+.title
+{
+    text-align: center;
+}
+
+
+.pt
+{
+    
+}
+
+.en
+{
+    
+}
+
