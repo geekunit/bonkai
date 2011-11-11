@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Locale;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -21,7 +23,8 @@ public class EntrySet implements Serializable {
     @OneToMany
     private List<Entry> entries;
     @Id
-    private Long id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Integer id;
 
     public EntrySet() {
     }
@@ -38,22 +41,22 @@ public class EntrySet implements Serializable {
         this.entries = entries;
     }
 
-    public Locale getLanguage() {
-        return lang;
-    }
-
-    public void setLanguage(Locale language) {
-        this.lang = language;
-    }
-
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-    
+
+    public Locale getLang() {
+        return lang;
+    }
+
+    public void setLang(Locale lang) {
+        this.lang = lang;
+    }
+
     
     
 }

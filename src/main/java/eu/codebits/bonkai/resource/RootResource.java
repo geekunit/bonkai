@@ -6,12 +6,15 @@ package eu.codebits.bonkai.resource;
 
 import com.sun.jersey.api.view.Viewable;
 import eu.codebits.bonkai.service.EntryService;
+import java.util.HashMap;
+import java.util.Map;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.naming.NamingException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 /**
@@ -38,7 +41,6 @@ public class RootResource {
     @GET
     @Produces("text/html")
     public Viewable adminView() {
-        
         return new Viewable("/index", "sadadasda");
     }
     
@@ -47,16 +49,19 @@ public class RootResource {
     @GET
     @Produces("text/html")
     public Viewable translateView() {
-        
         return new Viewable("/translate", entryService.getTranslationBlock(null, null));
     }
     
-    @Path("/review")
+    @Path("/review/{id}")
     @GET
     @Produces("text/html")
-    public Viewable reviewView() {
-        
-        return new Viewable("/review", entryService.getReviewBlock(null, null));
+    public Viewable reviewView(
+        @PathParam("id") Integer id) {
+        System.out.println("ID!!!!!!! "+id);
+        Map<String,Object> model = new HashMap();
+        model.put("tilte", "This is the page title");
+        model.put("reviewBlock", entryService.getReviewBlock(null, null));
+        return new Viewable("/review", model);
     }
     
     

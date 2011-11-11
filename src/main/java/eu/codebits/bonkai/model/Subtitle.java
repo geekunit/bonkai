@@ -5,6 +5,7 @@
 package eu.codebits.bonkai.model;
 
 import java.io.Serializable;
+import java.util.Locale;
 import javax.persistence.Entity;
 
 /**
@@ -13,6 +14,6 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Subtitle extends Document implements Serializable{
-    
+    private Locale audioLanguage; 
     
 }

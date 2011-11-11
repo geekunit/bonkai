@@ -17,6 +17,16 @@ public class SubtitleEntry extends Entry implements Serializable {
     
     private String timecode;
 
+    public String getTimecode() {
+        return timecode;
+    }
+
+    public void setTimecode(String timecode) {
+        this.timecode = timecode;
+    }
+    
+    
+
    
     
     
