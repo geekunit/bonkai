@@ -19,7 +19,12 @@ public class TranslationBlock {
     private Locale sourceLanguage;
     private Locale destinationLanguage;
 
-    public TranslationBlock(Entry entryToTranslate, List<Entry> previousContextEntries, List<Entry> nextContextEntries, Locale sourceLanguage, Locale destinationLanguage) {
+    public TranslationBlock(Entry entryToTranslate, 
+            List<Entry> previousContextEntries, 
+            List<Entry> nextContextEntries, 
+            Locale sourceLanguage, 
+            Locale destinationLanguage) 
+    {
         this.entryToTranslate = entryToTranslate;
         this.previousContextEntries = previousContextEntries;
         this.nextContextEntries = nextContextEntries;
