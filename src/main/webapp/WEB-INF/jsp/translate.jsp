@@ -22,12 +22,14 @@
                     
                     $('textarea').blur(function(){
                         if($(this).val().length==0) {
-                            $(this).css('height','50px');
+                            heightText=50;
+                            $(this).css('height',heightText+'px');
                             $(this).css('color','#aaa');
                             $(this).val('Enter text here ...');
                         } else {
                             if($(this).val().match(/^(\n+)$/ig)) {
-                                $(this).css('height','50px');
+                                heightText=50;
+                                $(this).css('height',heightText+'px');
                                 $(this).css('color','#aaa');
                                 $(this).val('Enter text here ...');
                             } else {
