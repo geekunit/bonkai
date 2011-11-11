@@ -25,7 +25,6 @@ public class RootResource {
     @EJB
     private EntryService entryService;
     
-    
     @GET
     @Consumes({"text/plain,text/html"})
     @Produces("text/plain")
@@ -46,7 +45,8 @@ public class RootResource {
     @Path("/translate")
     @GET
     @Produces("text/html")
-    public Viewable translateView() {
+    public Viewable translateView() 
+    {
         
         return new Viewable("/translate", entryService.getTranslationBlock(null, null));
     }
@@ -54,9 +54,18 @@ public class RootResource {
     @Path("/review")
     @GET
     @Produces("text/html")
-    public Viewable reviewView() {
+    public Viewable reviewView() 
+    {
         
         return new Viewable("/review", entryService.getReviewBlock(null, null));
+    }
+    
+    @Path("/search")
+    @GET
+    @Produces("text/html")
+    public Viewable searchView() 
+    {
+        return new Viewable("/search", entryService.getSearchBlock());
     }
     
     

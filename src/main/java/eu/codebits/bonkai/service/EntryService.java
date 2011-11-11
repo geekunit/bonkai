@@ -7,6 +7,7 @@ package eu.codebits.bonkai.service;
 import com.sun.jersey.spi.resource.Singleton;
 import eu.codebits.bonkai.dto.TranslationBlock;
 import eu.codebits.bonkai.dto.ReviewBlock;
+import eu.codebits.bonkai.dto.SearchBlock;
 import eu.codebits.bonkai.model.Document;
 import eu.codebits.bonkai.model.Entry;
 import java.util.ArrayList;
@@ -50,8 +51,9 @@ public class EntryService {
                 new Locale("en","US"));
     }
 
-    public TranslationBlock getTranslationBlock(Locale sourceLanguage, Locale destinationLanguage, Document document) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public SearchBlock getSearchBlock()
+    {
+        return new SearchBlock();
     }
     
 }

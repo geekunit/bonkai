@@ -19,7 +19,6 @@
             </c:forEach>
 
                 <div class="central_block">
-                    
                     <div class="entry_container">
                         <div class="language">
                             <div class="language_flag h_align ${it.sourceLanguage.language}"></div>

@@ -10,6 +10,10 @@ html, body {
     padding:0;
 }
 
+.title
+{
+    text-align: center;
+}
 
 /* Round Corners */
 .rounded
@@ -55,6 +59,8 @@ html, body {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    resize: none;
+    color : #aaa;
 }
 
 .original_entry
@@ -112,41 +118,40 @@ a.ok
     padding: 20PX;
 }
 
-a
-{
-    text-decoration: none;
-}
-
-a.ok:hover
-{
-    background-color: #0B5;
-}
-
+/* Buttons */
+a { text-decoration: none; }
+a.ok:hover { background-color: #0B5; }
 a.not_ok
 {
-    display:inline-block;
     background-color: #F33;
-    font-size: 20pt;
     color:#FFF;
-    padding: 20PX;
+}
+a.not_ok:hover{ background-color: #E22; }
+a.search
+{
+    background-color: #06F;
+    color: #FFF;
+}
+a.search:hover { background-color: #05E; }
+a.download
+{
+    background-color: #06F;
+    color: #FFF;
+}
+a.download:hover { background-color: #05E; }
+a.button
+{
+    font-size: 20pt;
+    padding: 20px;
+}
+a.button_small
+{
+    font-size: 15pt;
+    padding: 10px;
 }
 
-a.not_ok:hover
-{
-    display:inline-block;
-    background-color: #E22;
-    font-size: 20pt;
-    color:#FFF;
-    padding: 20PX;
-}
-
-.title
-{
-    text-align: center;
-}
 
 /* Flags */
-
 .language_flag
 {
     height: 48px;
@@ -167,4 +172,66 @@ a.not_ok:hover
 
 .pt { background-image: url("../img/flag_pt.png"); }
 .en { background-image: url("../img/flag_uk.png"); }
+
+
+/* Search page specific Styles */
+
+#searchbox
+{
+    font-size: 17pt;
+    width: 80%;
+    height: 65px;
+    border: none;
+    margin-right: 10px;
+}
+
+#search_block
+{
+    margin-bottom: 10px;
+    background-color: #699;
+    width:80%;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#search_results
+{
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #FFF;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#results_header
+{
+    border-bottom: solid 1px #999;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+#results_summary
+{
+    text-align: left;
+    width: 69%;
+    vertical-align: top;
+}
+
+#filters
+{
+    text-align: right;
+    width: 30%;
+}
+
+.result_cell
+{
+    border-bottom: solid 1px #999;
+    border-left: solid 1px #999;
+    border-right: solid 1px #999;
+    height: 60px;
+    text-align: left;
+    padding: 10px;
+}
 
