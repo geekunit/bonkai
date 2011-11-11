@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  *
@@ -21,8 +23,9 @@ import javax.persistence.OneToMany;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Document implements Serializable {
-    private String name;
+    protected String name;
     @OneToMany
+    @Cascade({CascadeType.ALL})
     private List<EntrySet> entrySets;
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

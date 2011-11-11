@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  *
@@ -24,9 +26,10 @@ import javax.persistence.OneToMany;
 public class Entry implements Serializable {
     
     
-    private Integer entryNumber; 
-    private String text;
+    protected Integer entryNumber; 
+    protected String text;
     @OneToMany
+    @Cascade({CascadeType.ALL})
     private List<Entry> previousEntryVersions;
     
     @Id

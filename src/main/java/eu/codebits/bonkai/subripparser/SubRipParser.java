@@ -21,6 +21,7 @@ import java.util.List;
  */
 public class SubRipParser {
 
+    private String encoding;
     private InputStream is;
 
     public SubRipParser(File file) throws FileNotFoundException {
@@ -33,7 +34,7 @@ public class SubRipParser {
 
     public List<Caption> parse() throws IOException, ParseException {
         List<Caption> captions = new ArrayList<Caption>();
-        InputStreamReader isreader = new InputStreamReader(is);
+        InputStreamReader isreader = new InputStreamReader(is, "ISO-8859-1");
         BufferedReader reader = new BufferedReader(isreader);
         String line;
         Integer lineNumber = 0;
@@ -58,6 +59,9 @@ public class SubRipParser {
             while((line = reader.readLine()) != null && !line.equals("")) {
                 lineNumber++;
                 text.add(line);
+            }
+            if(line == null) {
+                break;
             }
             
             captions.add(new Caption(number, timecodes, text));

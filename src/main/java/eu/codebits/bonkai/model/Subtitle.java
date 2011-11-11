@@ -13,7 +13,14 @@ import javax.persistence.Entity;
  * @author pmcosta
  */
 @Entity
-public class Subtitle extends Document implements Serializable{
-    private Locale audioLanguage; 
+public class Subtitle extends Document implements Serializable {
+
+    public Subtitle() {}
+    
+    public Subtitle(String name) {
+        this.name = name;
+    }
+
+    
     
 }

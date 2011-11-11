@@ -5,18 +5,22 @@
 package eu.codebits.bonkai.service;
 
 import com.sun.jersey.spi.resource.Singleton;
+import eu.codebits.bonkai.dao.EntryDao;
 import eu.codebits.bonkai.dto.TranslationBlock;
 import eu.codebits.bonkai.dto.ReviewBlock;
 import eu.codebits.bonkai.model.Document;
 import eu.codebits.bonkai.model.Entry;
 import java.util.ArrayList;
 import java.util.Locale;
+import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 
 @Local
 @Stateless
 public class EntryService {
+    @EJB
+    EntryDao entryDao;
 
     public ReviewBlock getReviewBlock(Locale sourceLanguage, Locale destinationLanguage)
     {
@@ -52,6 +56,11 @@ public class EntryService {
 
     public TranslationBlock getTranslationBlock(Locale sourceLanguage, Locale destinationLanguage, Document document) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public String createDocument(Document document) {
+        entryDao.insertDocument(document);
+        return "Document uploaded";
     }
     
 }

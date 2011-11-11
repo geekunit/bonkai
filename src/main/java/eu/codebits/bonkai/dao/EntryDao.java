@@ -98,6 +98,10 @@ public class EntryDao {
         em.persist(document);
         return document;
     };
+
+    public void insertDocument(Document document) {
+       em.persist(document);
+    }
     
     
 }
