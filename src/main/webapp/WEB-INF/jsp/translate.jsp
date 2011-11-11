@@ -6,6 +6,61 @@
     <head>
         <title>Bonkai</title>
         <jsp:include page="common_head.jsp" />
+        
+        <script type="text/javascript">
+            if(window.jQuery) {
+                var heightText=50;
+                $(document).ready(function() {
+                    
+                    $('textarea').click(function(){
+                        if($(this).val()=='Enter text here ...') {
+                            $(this).css('color','#000');
+                            $(this).val(''); 
+                        }
+                        
+                    });
+                    
+                    $('textarea').blur(function(){
+                        if($(this).val().length==0) {
+                            $(this).css('height','50px');
+                            $(this).css('color','#aaa');
+                            $(this).val('Enter text here ...');
+                        } else {
+                            if($(this).val().match(/^(\n+)$/ig)) {
+                                $(this).css('height','50px');
+                                $(this).css('color','#aaa');
+                                $(this).val('Enter text here ...');
+                            } else {
+                                $(this).css('color','#000');
+                            }
+                            
+                        }
+                    });
+                    $('textarea').scroll(function() {
+                        heightText+=11;
+                        $(this).css('height',heightText+'px');
+                    });
+                    
+                    $('a.ok').click(function() {
+                        if($('textarea').val().length==0) {
+                            console.log('validation failed.');
+                            return false;
+                        }
+                        if($('textarea').val()=='Enter text here ...') {
+                            console.log('validation failed.');
+                            return false;
+                            
+                        }
+                        if($('textarea').val().match(/^(\n+)$/ig)) {
+                            console.log('validation failed.');
+                            return false;
+                        }
+                        console.log('validation passed.');
+                        return false;
+                    });
+                });
+            }
+        </script>
     </head>
     <body>
         <div class="centered_content">
@@ -31,7 +86,7 @@
                             <div class="language_flag h_align ${it.destinationLanguage.language}"></div>
                             <div class="language_name h_align">${it.destinationLanguage.displayName}</div>
                         </div>
-                        <textarea class="translate_input rounded"></textarea>
+                        <textarea class="translate_input rounded">Enter text here ...</textarea>
                     </div>
 
                     <div class="submit_buttons">
