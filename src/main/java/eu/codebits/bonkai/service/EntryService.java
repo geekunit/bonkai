@@ -43,8 +43,9 @@ public class EntryService {
         nextContextEntries.add(new Entry("I'm a get medieval on your ass !"));    
         nextContextEntries.add(new Entry("..erm I was talking about us !"));
         
-        return new TranslationBlock(new Entry("You hear that hillbilly boy ?"),
-                previousContextEntries, nextContextEntries,
+        return new TranslationBlock(new Entry("You hear that hillbilly boy ? NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN "),
+                previousContextEntries, 
+                nextContextEntries,
                 new Locale("pt", "PT"),
                 new Locale("en","US"));
     }

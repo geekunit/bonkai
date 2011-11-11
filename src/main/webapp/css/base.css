@@ -1,16 +1,3 @@
-/* 
-    Document   : base
-    Created on : Nov 11, 2011, 8:55:28 AM
-    Author     : administrator
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
-/* 
-   TODO customize this sample style
-   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
-*/
-
 root { 
     display: block;
 }
@@ -23,6 +10,21 @@ html, body {
     padding:0;
 }
 
+
+/* Round Corners */
+.rounded
+{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Horizontal align */
+.h_align
+{
+    display: inline-block;
+}
+
 .context_entry
 {
     position: relative;
@@ -33,38 +35,47 @@ html, body {
     width: 70%;
     padding: 10px;
     background-color: #699;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
     font-size: 15pt;
 }
 
 .entry_container
 {
-    display: inline-block;
+    
     text-align: center;
+    margin: 5px;
+    vertical-align: top;
+}
+
+.translate_input
+{
+    font-size: 17pt;
+    border: none;
+    padding: 5px;
+    height: 50px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .original_entry
 {
     background-color: #366;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    font-size: 20pt;
-    color: #FFF;
-    padding: 20px;
+    font-size: 16pt;
+    padding: 5px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .translated_entry
 {
     background-color: #033;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    font-size: 20pt;
+    font-size: 16pt;
     color:#FFF;
-    padding: 20PX;
+    padding: 5px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .centered_content
@@ -77,13 +88,13 @@ html, body {
     margin-bottom: 0px;
     margin-top: 0px;
     padding-top: 30px;
+    text-align: center;
 }
 
-#review_block
+.central_block
 {
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 .submit_buttons
@@ -96,21 +107,34 @@ a.ok
 {
     display:inline-block;
     background-color: #0C6;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
     font-size: 20pt;
     color:#FFF;
     padding: 20PX;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+a.ok:hover
+{
+    background-color: #0B5;
 }
 
 a.not_ok
 {
     display:inline-block;
     background-color: #F33;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
+    font-size: 20pt;
+    color:#FFF;
+    padding: 20PX;
+}
+
+a.not_ok:hover
+{
+    display:inline-block;
+    background-color: #E22;
     font-size: 20pt;
     color:#FFF;
     padding: 20PX;
@@ -121,14 +145,26 @@ a.not_ok
     text-align: center;
 }
 
+/* Flags */
 
-.pt
+.language_flag
 {
-    
+    height: 48px;
+    padding-left: 48px;
+    background-repeat: no-repeat;
 }
 
-.en
+.language_name
 {
-    
+   position: absolute; top: 50%;
 }
+
+.language
+{
+    position: relative;
+    height: 48px;
+}
+
+.pt { background-image: url("../img/flag_pt.png"); }
+.en { background-image: url("../img/flag_uk.png"); }
 
