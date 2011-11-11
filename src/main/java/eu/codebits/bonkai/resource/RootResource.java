@@ -26,7 +26,6 @@ public class RootResource {
     private EntryService entryService;
     
     
-    
     @GET
     @Consumes({"text/plain,text/html"})
     @Produces("text/plain")

@@ -5,8 +5,8 @@
 package eu.codebits.bonkai.dto;
 
 import eu.codebits.bonkai.model.Entry;
-import eu.codebits.bonkai.model.Language;
 import java.util.List;
+import java.util.Locale;
 
 /**
  *
@@ -16,10 +16,10 @@ public class TranslationBlock {
     private Entry entryToTranslate;
     private List<Entry> previousContextEntries;
     private List<Entry> nextContextEntries;
-    private Language sourceLanguage;
-    private Language destinationLanguage;
+    private Locale sourceLanguage;
+    private Locale destinationLanguage;
 
-    public TranslationBlock(Entry entryToTranslate, List<Entry> previousContextEntries, List<Entry> nextContextEntries, Language sourceLanguage, Language destinationLanguage) {
+    public TranslationBlock(Entry entryToTranslate, List<Entry> previousContextEntries, List<Entry> nextContextEntries, Locale sourceLanguage, Locale destinationLanguage) {
         this.entryToTranslate = entryToTranslate;
         this.previousContextEntries = previousContextEntries;
         this.nextContextEntries = nextContextEntries;
@@ -27,13 +27,7 @@ public class TranslationBlock {
         this.destinationLanguage = destinationLanguage;
     }
 
-    public Language getDestinationLanguage() {
-        return destinationLanguage;
-    }
-
-    public void setDestinationLanguage(Language destinationLanguage) {
-        this.destinationLanguage = destinationLanguage;
-    }
+    
 
     public Entry getEntryToTranslate() {
         return entryToTranslate;
@@ -59,14 +53,23 @@ public class TranslationBlock {
         this.previousContextEntries = previousContextEntries;
     }
 
-    public Language getSourceLanguage() {
+    public Locale getDestinationLanguage() {
+        return destinationLanguage;
+    }
+
+    public void setDestinationLanguage(Locale destinationLanguage) {
+        this.destinationLanguage = destinationLanguage;
+    }
+
+    public Locale getSourceLanguage() {
         return sourceLanguage;
     }
 
-    public void setSourceLanguage(Language sourceLanguage) {
+    public void setSourceLanguage(Locale sourceLanguage) {
         this.sourceLanguage = sourceLanguage;
     }
 
+    
  
     
    
