@@ -38,6 +38,7 @@
                             
                         }
                     });
+                    
                     $('textarea').scroll(function() {
                         heightText+=11;
                         $(this).css('height',heightText+'px');
@@ -58,6 +59,22 @@
                             return false;
                         }
                         console.log('validation passed.');
+                        
+                        var translationObject = 
+                        {
+                            "translatedEntry":  $('textarea').val()
+                        };
+                        
+                        $.ajax({
+                            url: "/translate",
+                            method: "POST",
+                            data: translationObject,
+                            dataType: "json",
+                            success: function(){
+                                console.log("Fiz cenas");
+                            }
+                        });
+                        
                         return false;
                     });
                 });
@@ -94,7 +111,7 @@
                         </div>
                     </div>
                     <div class="submit_buttons">
-                        <a class="ok rounded" href="#">Submit</a>
+                        <a id="submit_translation" class="ok rounded" href="#">Submit</a>
                     </div>
                </div>
 

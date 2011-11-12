@@ -11,6 +11,7 @@ import javax.ejb.Stateless;
 import javax.naming.NamingException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
@@ -41,15 +42,23 @@ public class RootResource {
         return new Viewable("/index", "sadadasda");
     }
     
-    
     @Path("/translate")
     @GET
     @Produces("text/html")
     public Viewable translateView() 
     {
-        
         return new Viewable("/translate", entryService.getTranslationBlock(null, null));
     }
+    
+    @Path("/translate")
+    @POST
+    @Consumes({"text/plain,text/html"})
+    @Produces("text/html")
+    public void submitTranslation() 
+    {
+    }
+    
+    
     
     @Path("/review")
     @GET
