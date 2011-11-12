@@ -76,21 +76,23 @@
             </c:forEach>
 
                 <div class="central_block">
-                    <div class="entry_container">
-                        <div class="language">
-                            <div class="language_flag h_align ${it.sourceLanguage.language}"></div>
-                            <div class="language_name h_align">${it.sourceLanguage.displayName}</div>
+                    <div id="entries_container">
+                        <div class="row">
+                            <div class="left_col lang rounded">
+                                <div class="language_flag padding_53 ${it.sourceLanguage.language}">Original Text</div>
+                            </div>
+                            <div class="right_col original_entry rounded">${it.entryToTranslate.text}</div>
                         </div>
-                        <div class="original_entry rounded">${it.entryToTranslate.text}</div>
-                    </div>
-                    <div class="entry_container">
-                        <div class="language">
-                            <div class="language_flag h_align ${it.destinationLanguage.language}"></div>
-                            <div class="language_name h_align">${it.destinationLanguage.displayName}</div>
+                    
+                        <div class="row">
+                            <div class="left_col lang rounded">
+                                <div class="language_flag padding_53 ${it.destinationLanguage.language}">Translate Text</div>
+                            </div>
+                            <div class="right_col">
+                                <textarea class="right_col translate_input rounded">Enter text here ...</textarea>
+                            </div>
                         </div>
-                        <textarea class="translate_input rounded">Enter text here ...</textarea>
                     </div>
-
                     <div class="submit_buttons">
                         <a class="ok rounded" href="#">Submit</a>
                     </div>

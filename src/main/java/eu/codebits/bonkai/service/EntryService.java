@@ -23,7 +23,7 @@ public class EntryService {
     {
         ArrayList<Entry> previousContextEntries = new ArrayList<Entry>();
         previousContextEntries.add(new Entry("What now ? I tell you what now.."));
-        previousContextEntries.add(new Entry("I'm a call a coulple of niggas with hardpipes and motherfuckin' blowtorches"));
+        previousContextEntries.add(new Entry("I'm a call a coulple of  hard pipe hittin' niggas with motherfuckin' blowtorches"));
         ArrayList<Entry> nextContextEntries = new ArrayList<Entry>();
         nextContextEntries.add(new Entry("I'm a get medieval on your ass !"));    
         nextContextEntries.add(new Entry("..erm I was talking about us !"));
@@ -31,8 +31,8 @@ public class EntryService {
         return new ReviewBlock(new Entry("You hear that hillbilly boy ?"),
                 new Entry("Est‡s a ouvir, menino caipira ?"),
                 previousContextEntries, nextContextEntries,
-                new Locale("pt", "PT"),
-                new Locale("en","US"));
+                new Locale("en", "US"),
+                new Locale("pt","PT"));
     }
     
     public TranslationBlock getTranslationBlock(Locale sourceLanguage, Locale destinationLanguage) 

@@ -13,6 +13,8 @@
             <jsp:include page="common_header.jsp">
                 <jsp:param name="title" value="Review Challenge" />
             </jsp:include>
+            
+            <div>Please take the time to read the following translation and tell us, if you agree with it. This way we can evaluate user input and provide more precise and correct translations</div>
 
             <%-- Previous context Entries --%>
             <c:forEach var="entry" items="${it.previousContextEntries}">
@@ -21,18 +23,26 @@
 
                 <div class="central_block">
                     
-                    <div class="entry_container">
-                        <div class="language ${it.sourceLanguage.language}">${it.sourceLanguage.displayName}</div>
-                        <div class="original_entry rounded">${it.originalEntry.text}</div>
-                    </div>
-                    <div class="entry_container">
-                        <div class="language ${it.destinationLanguage.language}">${it.destinationLanguage.displayName}</div>
-                        <div class="translated_entry rounded">${it.translatedEntry.text}</div>
+                    <div id="entries_container">
+                    
+                        <div class="row">
+                            <div class="left_col lang rounded">
+                                <div class="language_flag padding_53 ${it.sourceLanguage.language}">Original Text</div>
+                            </div>
+                            <div class="right_col original_entry rounded">${it.originalEntry.text}</div>
+                        </div>
+                    
+                        <div class="row lang rounded">
+                            <div class="left_col lang rounded">
+                                <div class="language_flag padding_53 ${it.destinationLanguage.language}">Translated Text</div>
+                            </div>
+                            <div class="right_col translated_entry rounded">${it.translatedEntry.text}</div>
+                        </div>
                     </div>
 
                     <div class="submit_buttons">
-                        <a class="ok rounded" href="#">I agree.</a>
-                        <a class="not_ok rounded" href="#">I do not agree.</a>
+                        <a class="ok button rounded" href="#">I agree.</a>
+                        <a class="not_ok button rounded" href="#">I do not agree.</a>
                     </div>
                </div>
 

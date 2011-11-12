@@ -29,60 +29,6 @@ html, body {
     display: inline-block;
 }
 
-.context_entry
-{
-    position: relative;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 70%;
-    padding: 10px;
-    background-color: #699;
-    font-size: 15pt;
-}
-
-.entry_container
-{
-    
-    text-align: center;
-    margin: 5px;
-    vertical-align: top;
-}
-
-.translate_input
-{
-    font-size: 17pt;
-    border: none;
-    padding: 5px;
-    height: 50px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    resize: none;
-    color : #aaa;
-}
-
-.original_entry
-{
-    background-color: #366;
-    font-size: 16pt;
-    padding: 5px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.translated_entry
-{
-    background-color: #033;
-    font-size: 16pt;
-    color:#FFF;
-    padding: 5px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .centered_content
 {
@@ -103,11 +49,6 @@ html, body {
     margin: 20px;
 }
 
-.submit_buttons
-{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 
 a.ok
 {
@@ -150,24 +91,12 @@ a.button_small
     padding: 10px;
 }
 
-
 /* Flags */
 .language_flag
 {
     height: 48px;
-    padding-left: 48px;
+    width: 48px;
     background-repeat: no-repeat;
-}
-
-.language_name
-{
-   position: absolute; top: 50%;
-}
-
-.language
-{
-    position: relative;
-    height: 48px;
 }
 
 .pt { background-image: url("../img/flag_pt.png"); }
@@ -233,5 +162,104 @@ a.button_small
     height: 60px;
     text-align: left;
     padding: 10px;
+}
+
+
+/* Review Specific css */
+
+#entries_container
+{
+    display: table;
+    width:100%;
+    border-spacing: 10px;
+}
+
+.row
+{
+    display: table-row;
+    height: 50px;
+}
+
+.left_col
+{
+    width: 20%;
+    display: table-cell;
+
+}
+
+.right_col
+{
+    width: 80%;;
+    display: table-cell;
+}
+
+.original_entry
+{
+    background-color: #366;
+    font-size: 16pt;
+    padding: 5px;
+    color: #FFF;
+}
+
+.translated_entry
+{
+    background-color: #033;
+    font-size: 16pt;
+    color:#FFF;
+    padding: 5px;
+}
+
+
+.lang
+{
+    background-color: #FFF;
+    font-size: 16pt;
+    padding: 5px;
+    color: #000;
+}
+
+.padding_53
+{
+    padding-left: 53px;
+}
+
+.context_entry
+{
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    padding: 10px;
+    background-color: #699;
+    font-size: 15pt;
+}
+
+.entry_container
+{
+    text-align: center;
+    margin: 5px;
+    position: relative;
+}
+
+
+.translate_input
+{
+    font-size: 17pt;
+    border: none;
+    padding: 5px;
+    height: 50px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    resize: none;
+    color : #aaa;
+}
+
+.submit_buttons
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
