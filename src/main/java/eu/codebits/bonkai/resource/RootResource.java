@@ -45,7 +45,7 @@ public class RootResource {
     @EJB
     private EntryService entryService;
     
-    
+    @Path("/upload")
     @POST
     @Consumes(MediaType.MULTIPART_FORM_DATA)
     public String uploadDocument(@FormDataParam("language") String locale,
@@ -55,11 +55,18 @@ public class RootResource {
         List<Caption> captionList = srp.parse();
         List<EntrySet> entrySetList = new ArrayList<EntrySet>();
         EntrySet entrySet = null;
+        EntrySet destEntrySet = null;
         if(locale.equals("en")) {
             entrySet = new EntrySet(Locale.ENGLISH);
+            destEntrySet = new EntrySet(new Locale("pt","PT"));
         } else {
             entrySet = new EntrySet(new Locale("pt","PT"));
+            
+            destEntrySet = new EntrySet(Locale.ENGLISH);
         }
+        
+        entrySet.setIsComplete(true);
+        destEntrySet.setIsComplete(false);
         List<Entry> entryList = new ArrayList();
         for(Caption c : captionList) {
             StringBuilder stringBuilder = new StringBuilder();
@@ -71,9 +78,14 @@ public class RootResource {
         }
         entrySet.setEntries(entryList);
         entrySetList.add(entrySet);
+        entrySetList.add(destEntrySet);
         Document document = new Subtitle(fileInfo.getFileName());
         
         document.setEntrySets(entrySetList);
+        
+        entrySet.setDocument(document);
+        destEntrySet.setDocument(document);
+        
         return entryService.createDocument(document);
     }
     
@@ -97,7 +109,18 @@ public class RootResource {
     @GET
     @Produces("text/html")
     public Viewable translateView() {
-        return new Viewable("/translate", entryService.getTranslationBlock(null, null));
+        return new Viewable("/translate", entryService.getTranslationBlock(
+                Locale.ENGLISH, new Locale("pt","PT"))
+                );
+    }
+    
+    
+    
+    @Path("/upload")
+    @GET
+    @Produces("text/html")
+    public Viewable uploadView() {
+        return new Viewable("/upload", null);
     }
     
     @Path("/review/{id}")

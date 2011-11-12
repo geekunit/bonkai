@@ -38,51 +38,8 @@ public class EntryDao {
     @PersistenceContext(unitName = "eu.codebits_bonkai_war_1.0-SNAPSHOTPU")
     private EntityManager em;
     
-  
-    
-    
     @PostConstruct
-    public void init() throws MalformedURLException, IOException, ParseException {
-       
-       
-        
-        String srt = "1\n00:00:00,720 --> 00:00:03,765\nOh, God, guys, "
-                + "I'm\nstill really hungover.\n\n2\n00:00:03,769 --> "
-                + "00:00:05,135\nDid I really\nruin a wedding?\n\n3\n"
-                + "00:00:05,137 --> 00:00:07,504\nNo, you didn't ruin\na wedding."; 
-        
-      
-                
-        SubRipParser parser = new SubRipParser(new ByteArrayInputStream(srt.getBytes()));
-        List<Caption> captions = parser.parse();
-        
-        List<Entry> entries = new ArrayList();
-        for(Caption c : captions) {
-            
-            SubtitleEntry subtitleEntry = new SubtitleEntry();
-           
-           
-            System.out.println(c.getNumber() + "@" + c.getTimecodes());
-            String text = "";
-            for(String line : c.getText()) {
-                text +=line+"/n";
-            }
-           
-             subtitleEntry.setText(text);
-             subtitleEntry.setTimecode(c.getTimecodes());
-             
-             entries.add(subtitleEntry);
-             
-            
-        }
-        
-        
-        insertDocument("30 CARALHO!!!!");
-        
-       
-        
-        
-    }
+    public void init() throws MalformedURLException, IOException, ParseException {}
     
     
     public EntrySet createEntrySetInDocument(Locale locale, Document document) {
@@ -101,6 +58,33 @@ public class EntryDao {
 
     public void insertDocument(Document document) {
        em.persist(document);
+    }
+
+    public Document getDocumentToTranslate(Locale sourceLanguage, Locale destinationLanguage) {
+        
+//        List<EntrySet> entrySetListIncomplete = em.createQuery("select e from EntrySet e where "
+//                + " e.lang=:destinationLang and e.isComplete=false")
+//                .setParameter("destinationLang", destinationLanguage)
+//                .getResultList();
+        
+        List<Document> fuckingDocuments = em.createNativeQuery("select * from Document where id in (select document_id from EntrySet where document_id in (select document_id from EntrySet where isComplete='N' and lang='pt_PT') and isComplete='Y' and lang='en')",Document.class).getResultList();
+        
+        
+//        List<Document> documentList = em.createQuery("select d from Document d inner join d.entrySets e where e IN :incomplete")
+//                .setParameter("incomplete", entrySetListIncomplete)
+//                .getResultList();;
+//        
+//        List<EntrySet> entrySetList = em.createQuery("select e from EntrySet e where e.document IN "
+//                + " (select d from Document d join EntrySet e where e IN :incomplete) "
+//                + " and e.lang=:sourceLang and e.isComplete=true")
+//                .setParameter("incomplete", entrySetListIncomplete)
+//                .setParameter("sourceLang", sourceLanguage)
+//                .getResultList();
+        
+        for(Document d : fuckingDocuments) {
+            System.out.println("!!!!!!!!!!!!!!!!!"+d.getName());
+        }
+        return null;
     }
     
     

@@ -40,6 +40,8 @@ public class EntryService {
     
     public TranslationBlock getTranslationBlock(Locale sourceLanguage, Locale destinationLanguage) 
     {
+        Document document = entryDao.getDocumentToTranslate(sourceLanguage, destinationLanguage);
+        
         ArrayList<Entry> previousContextEntries = new ArrayList<Entry>();
         previousContextEntries.add(new Entry("What now ? I tell you what now.."));
         previousContextEntries.add(new Entry("I'm a call a coulple of niggas with hardpipes and motherfuckin' blowtorches"));
@@ -47,7 +49,8 @@ public class EntryService {
         nextContextEntries.add(new Entry("I'm a get medieval on your ass !"));    
         nextContextEntries.add(new Entry("..erm I was talking about us !"));
         
-        return new TranslationBlock(new Entry("You hear that hillbilly boy ? NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN NANANANAN "),
+        
+        return new TranslationBlock(new Entry(""),
                 previousContextEntries, 
                 nextContextEntries,
                 new Locale("pt", "PT"),
@@ -62,5 +65,8 @@ public class EntryService {
         entryDao.insertDocument(document);
         return "Document uploaded";
     }
+    
+    
+    
     
 }
